@@ -10,7 +10,10 @@ plugins {
 repositories {
     mavenLocal()
     maven {
-        url = uri('https://repo.maven.apache.org/maven2/')
+        url = 'http://repo.maven.apache.org/maven2'
+    }
+  dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:1.1.1")  // Builds Report
     }
 }
 
@@ -27,7 +30,7 @@ dependencies {
 group = 'net.serenitybdd.starter'
 version = '1.0.0-SNAPSHOT'
 description = 'Sample Serenity BDD project using Cucumber'
-java.sourceCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = '1.8'
 
 publishing {
     publications {
@@ -40,3 +43,5 @@ publishing {
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
+
+gradle.startParameter.continueOnFailure = true
